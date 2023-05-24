@@ -151,12 +151,11 @@ class Experiment:
             for b in range(self.df_cell_prob.index.shape[0]):
                 for h1 in range(h+1):
                     for b1 in range(b+1):
-			num_summants +=1
+                        num_summants +=1
                         # check misalignment of the pair of cells if enough datapoints in each cells
                         if (self.df_cell_mass.iat[b,h]>=self.min_datapoints) & (self.df_cell_mass.iat[b1,h1]>=self.min_datapoints):
                             alignment = max(0.0, self.df_cell_prob.iat[b1,h1] - self.df_cell_prob.iat[b,h] )
-                            max_aligment = max(max_aligment, alignment)
-                            
+                            max_aligment = max(max_aligment, alignment) 
                             if alignment > 0.0:
                                 sum_aligment += alignment
                                 disaligned_cells |= {(self.df_cell_prob.index[b],self.df_cell_prob.columns[h]),(self.df_cell_prob.index[b1],self.df_cell_prob.columns[h1])}
