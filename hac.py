@@ -228,13 +228,13 @@ class Experiment:
 def plot_roc(data, task_name):
     fig, ax = plt.subplots()
     fpr, tpr, th = roc_curve(data['y'], data['b'])
-    roc_display = RocCurveDisplay(fpr=fpr, tpr=tpr).plot(ax=ax)
+    roc_display = RocCurveDisplay(fpr=fpr, tpr=tpr).plot(ax=ax,linewidth=3)
     
     fpr, tpr, th = roc_curve(data['y'], data['h'])
-    roc_display = RocCurveDisplay(fpr=fpr, tpr=tpr).plot(ax=ax)
+    roc_display = RocCurveDisplay(fpr=fpr, tpr=tpr).plot(ax=ax,linewidth=3)
     
     fpr, tpr, th = roc_curve(data['y'], data['h+AI'])
-    roc_display = RocCurveDisplay(fpr=fpr, tpr=tpr).plot(ax=ax)
+    roc_display = RocCurveDisplay(fpr=fpr, tpr=tpr).plot(ax=ax,linewidth=3)
     ax.set_xlabel('False Positive Rate',fontsize=18)
     ax.set_ylabel('True Positive Rate',fontsize=18)
     ax.tick_params(labelsize=18)
